@@ -7,12 +7,14 @@ use Illuminate\Http\Request;
 
 class ProdutosController extends Controller
 {
-    
     public function index()
     {
         $produtos = Produto::orderBy('id', 'desc')->get();
 
-        return view('produtos.index', ['prods' => $produtos, 'pagina' => 'produtos']);
+        return view('produtos.index', [
+            'prods' => $produtos,
+            'pagina' => 'produtos',
+        ]);
     }
 
     public function show(Produto $prod)
@@ -56,7 +58,10 @@ class ProdutosController extends Controller
 
     public function remove(Produto $prod)
     {
-        return view('produtos.remove', ['prod' => $prod, 'pagina' => 'produtos']);
+        return view('produtos.remove', [
+            'prod' => $prod,
+            'pagina' => 'produtos',
+        ]);
     }
 
     public function delete(Produto $prod)
@@ -65,5 +70,4 @@ class ProdutosController extends Controller
 
         return redirect()->route('produtos');
     }
-
 }
