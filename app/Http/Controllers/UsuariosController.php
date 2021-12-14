@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Usuario;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 
@@ -54,6 +55,8 @@ class UsuariosController extends Controller
             if (Auth::attempt($credenciais)) {
                 session()->regenerate();
                 session()->put('usuario', Auth::user());
+                //Seta a token: setRememberToken()
+                dd(Auth::user());
                 return redirect()->route('home');
             } else {
                 // Login deu errado (usuário ou senha inválidos)
@@ -66,10 +69,10 @@ class UsuariosController extends Controller
         return view('usuarios.login');
     }
 
-    public function logout()
+    public function logout(Request $request)
     {
-        Auth::logout();
-        session()->forget('usuario');
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
         return redirect()->route('home');
     }
 }
