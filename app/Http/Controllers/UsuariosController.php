@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Usuario;
+use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Hash;
@@ -36,27 +37,34 @@ class UsuariosController extends Controller
 
         $usuario->save();
 
-        return redirect()->route('usuarios.index');
+        Auth::attempt(
+            [
+                'username' => $form->username,
+                'password' => $form->password,
+            ],
+            $form->remember
+        );
+
+        event(new Registered($usuario));
+
+        return redirect()->route('verification.notice');
     }
 
     // Ações de login
     public function login(Request $form)
     {
-        // Está enviando o formulário
         if ($form->isMethod('POST')) {
-            // Se um dos campos não for preenchidos, nem tenta o login e volta
-            // para a página anterior
-            $credenciais = $form->validate([
-                'username' => ['required'],
-                'password' => ['required'],
-            ]);
-
             // Tenta o login
-            if (Auth::attempt($credenciais)) {
+            if (
+                Auth::attempt(
+                    [
+                        'username' => $form->username,
+                        'password' => $form->password,
+                    ],
+                    $form->remember
+                )
+            ) {
                 session()->regenerate();
-                session()->put('usuario', Auth::user());
-                //Seta a token: setRememberToken()
-                dd(Auth::user());
                 return redirect()->route('home');
             } else {
                 // Login deu errado (usuário ou senha inválidos)
@@ -65,14 +73,14 @@ class UsuariosController extends Controller
                     ->with('erro', 'Usuário ou senha inválidos.');
             }
         }
-
         return view('usuarios.login');
     }
 
     public function logout(Request $request)
     {
-        $request->session()->invalidate();
-        $request->session()->regenerateToken();
+        Auth::logout();
+        session()->invalidate();
+        session()->regenerateToken();
         return redirect()->route('home');
     }
 }

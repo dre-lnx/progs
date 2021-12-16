@@ -1,14 +1,18 @@
 <?php
-
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\DB;
 
-class Usuario extends Model implements Authenticatable
+class Usuario extends Authenticatable implements MustVerifyEmail
 {
     use HasFactory;
+    use Notifiable;
+
+    public $timestamps = false;
 
     protected $hidden = ['password'];
 
@@ -29,17 +33,19 @@ class Usuario extends Model implements Authenticatable
 
     public function getRememberToken()
     {
-        return Auth::user()->remember_token;
+        return $this->remember_token;
     }
 
-    public function setRememberToken(string $value)
+    public function setRememberToken($token)
     {
-        return Auth::user()->remember_token = $value;
+        DB::table('usuarios')
+            ->where('id', $this->id)
+            ->update(['remember_token' => $token]);
+        return;
     }
 
     public function getRememberTokenName()
     {
         return 'remember_token';
     }
-    public $timestamps = false;
 }
