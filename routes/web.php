@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProdutosController;
 use App\Http\Controllers\UsuariosController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,7 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('produtos', [ProdutosController::class, 'index'])->name('produtos');
+//->middleware('verified');
 
 Route::get('/produtos/inserir', [ProdutosController::class, 'create'])->name(
     'produtos.inserir'
@@ -85,3 +87,15 @@ Route::get('/email/verify/{id}/{hash}', function (
 })
     ->middleware(['auth', 'signed'])
     ->name('verification.verify');
+
+Route::get('profile', [UsuariosController::class, 'profile'])->name(
+    'usuarios.profile'
+);
+
+Route::get('profile/edit', [UsuariosController::class, 'editProfile'])->name(
+    'profile.edit'
+);
+
+Route::post('profile/editar', [UsuariosController::class, 'update'])->name(
+    'profile.update'
+);

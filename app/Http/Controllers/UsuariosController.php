@@ -21,6 +21,34 @@ class UsuariosController extends Controller
         ]);
     }
 
+    public function profile()
+    {
+        $userr = Usuario::find(Auth::user()->id);
+        return view('usuarios.profile', [
+            'pagina' => 'perfil',
+        ]);
+    }
+
+    public function editProfile()
+    {
+        $userr = Usuario::find(Auth::user()->id);
+        return view('usuarios.editProfile', [
+            'pagina' => 'editarPerfil',
+        ]);
+    }
+
+    public function update(Request $form)
+    {
+        $usuario = Usuario::find(Auth::user()->id);
+
+        $usuario->name = $form->name;
+        $usuario->email = $form->email;
+        $usuario->username = $form->username;
+
+        $usuario->save();
+        return redirect()->route('usuarios.profile');
+    }
+
     public function create()
     {
         return view('usuarios.create', ['pagina' => 'usuarios']);
