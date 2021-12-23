@@ -29,6 +29,21 @@
             </div>
 
             <div class="mb-3">
+            <div class="form-check">
+                <input class="form-check-input" type="radio" name="admin" id="flexRadioDefault1" value="0" checked>
+                <label class="form-check-label" for="flexRadioDefault1">
+                  Usuário Normal
+                </label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="admin" id="flexRadioDefault2" value="1">
+                <label class="form-check-label" for="flexRadioDefault2">
+                  Administrador
+                </label>
+              </div>
+            </div>
+
+            <div class="mb-3">
                 <button type="submit" class="btn btn-primary">Gravar</button>
             </div>
         </form>

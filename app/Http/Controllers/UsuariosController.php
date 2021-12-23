@@ -81,6 +81,7 @@ class UsuariosController extends Controller
         $usuario->email = $form->email;
         $usuario->username = $form->username;
         $usuario->password = Hash::make($form->password);
+        $usuario->admin = $form->admin;
 
         $usuario->save();
 
