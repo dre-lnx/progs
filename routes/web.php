@@ -88,24 +88,25 @@ Route::get('/email/verify/{id}/{hash}', function (
     ->middleware(['auth', 'signed'])
     ->name('verification.verify');
 
-Route::get('profile', [UsuariosController::class, 'profile'])->name(
-    'usuarios.profile'
-);
+Route::get('profile', [UsuariosController::class, 'profile'])
+    ->middleware('auth')
+    ->name('usuarios.profile');
 
-Route::get('profile/edit', [UsuariosController::class, 'editProfile'])->name(
-    'profile.edit'
-);
+Route::get('profile/edit', [UsuariosController::class, 'editProfile'])
+    ->middleware('auth')
+    ->name('profile.edit');
 
-Route::post('profile/editar', [UsuariosController::class, 'update'])->name(
-    'profile.update'
-);
+Route::post('profile/editar', [UsuariosController::class, 'update'])
+    ->middleware('auth')
+    ->name('profile.update');
 
-Route::get('profile/password', [
-    UsuariosController::class,
-    'editPassword',
-])->name('profile.password');
+Route::get('profile/password', [UsuariosController::class, 'editPassword'])
+    ->middleware('auth')
+    ->name('profile.password');
 
 Route::post('profile/password/edit', [
     UsuariosController::class,
     'updatePassword',
-])->name('profile.passwordUpdate');
+])
+    ->middleware('auth')
+    ->name('profile.passwordUpdate');
