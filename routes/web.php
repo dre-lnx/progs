@@ -21,7 +21,6 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('produtos', [ProdutosController::class, 'index'])->name('produtos');
-//->middleware('verified');
 
 Route::get('/produtos/inserir', [ProdutosController::class, 'create'])->name(
     'produtos.inserir'
