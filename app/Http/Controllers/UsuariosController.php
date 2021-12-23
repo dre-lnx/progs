@@ -60,8 +60,6 @@ class UsuariosController extends Controller
     {
         $usuario = Usuario::find(Auth::user()->id);
 
-        //Como desfazer o hash para verificar se a senha é verdadeira?
-
         if ($form->novaSenha == $form->novaSenhaRep) {
             $usuario->password = Hash::make($form->password);
         }
