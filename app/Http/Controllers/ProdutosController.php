@@ -29,11 +29,14 @@ class ProdutosController extends Controller
 
     public function insert(Request $form)
     {
+        $caminho_imagem = $form->file('imagem')->store('', 'imagens');
+
         $prod = new Produto();
 
         $prod->nome = $form->nome;
         $prod->preco = $form->preco;
         $prod->descricao = $form->descricao;
+        $prod->imagem = $caminho_imagem;
 
         $prod->save();
 
