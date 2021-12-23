@@ -99,3 +99,13 @@ Route::get('profile/edit', [UsuariosController::class, 'editProfile'])->name(
 Route::post('profile/editar', [UsuariosController::class, 'update'])->name(
     'profile.update'
 );
+
+Route::get('profile/password', [
+    UsuariosController::class,
+    'editPassword',
+])->name('profile.password');
+
+Route::post('profile/password/edit', [
+    UsuariosController::class,
+    'updatePassword',
+])->name('profile.passwordUpdate');

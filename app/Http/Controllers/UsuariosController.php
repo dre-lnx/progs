@@ -49,6 +49,27 @@ class UsuariosController extends Controller
         return redirect()->route('usuarios.profile');
     }
 
+    public function editPassword()
+    {
+        return view('usuarios.editPassword', [
+            'pagina' => 'editarSenha',
+        ]);
+    }
+
+    public function updatePassword(Request $form)
+    {
+        $usuario = Usuario::find(Auth::user()->id);
+
+        //Como desfazer o hash para verificar se a senha é verdadeira?
+
+        if ($form->novaSenha == $form->novaSenhaRep) {
+            $usuario->password = Hash::make($form->password);
+        }
+
+        $usuario->save();
+        return redirect()->route('usuarios.profile');
+    }
+
     public function create()
     {
         return view('usuarios.create', ['pagina' => 'usuarios']);

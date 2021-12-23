@@ -1,6 +1,6 @@
 @extends('templates.base')
 @section('title', 'Editar Dados de Usuário')
-@section('h1', 'Inserir Usuário')
+@section('h1', 'Editar Usuário')
 
 @section('content')
 <div class="row">
@@ -19,12 +19,7 @@
             </div>
 
             <div class="mb-3">
-                <label for="usuario" class="form-label">Usuário</label>
-                <input type="text" class="form-control" id="username" name="username"  value="{{Auth::user()->username}}" />
-            </div>
-
-            <div class="mb-3">
-                <button type="submit" class="btn btn-primary">Gravar</button>
+                <button type="submit" class="btn btn-primary">Atualizar Dados</button>
             </div>
         </form>
 
