@@ -54,6 +54,14 @@ Route::delete('/produtos/{prod}/apagar', [
     'delete',
 ])->name('produtos.delete');
 
+Route::get('produtos/recortar', [ProdutosController::class, 'showCrop'])->name(
+    'produtos.cortar'
+);
+
+Route::post('produtos/crop', [ProdutosController::class, 'crop'])->name(
+    'produtos.recortar'
+);
+
 Route::get('usuarios', [UsuariosController::class, 'index'])->name(
     'usuarios.index'
 );

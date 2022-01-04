@@ -29,6 +29,10 @@
             </div>
 
             <div class="mb-3">
+                <a href="{{ route('produtos.cortar') }}" class="btn btn-primary" role="button" data-bs-toggle="button">Cortar Imagem</a>
+            </div>
+
+            <div class="mb-3">
                 <button type="submit" class="btn btn-primary">Gravar</button>
             </div>
         </form>

@@ -27,6 +27,16 @@ class ProdutosController extends Controller
         return view('produtos.create', ['pagina' => 'produtos']);
     }
 
+    public function recortar()
+    {
+        dd('recortada');
+    }
+
+    public function showCrop()
+    {
+        return view('produtos.crop', ['pagina' => 'produtos']);
+    }
+
     public function insert(Request $form)
     {
         $caminho_imagem = $form->file('imagem')->store('', 'imagens');
