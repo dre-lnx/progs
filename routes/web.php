@@ -54,9 +54,13 @@ Route::delete('/produtos/{prod}/apagar', [
     'delete',
 ])->name('produtos.delete');
 
-Route::get('produtos/recortar', [ProdutosController::class, 'showCrop'])->name(
+Route::get('/recortar', [ProdutosController::class, 'showCrop'])->name(
     'produtos.cortar'
 );
+
+Route::get('/teste', function () {
+    dd('asdasd');
+});
 
 Route::post('produtos/crop', [ProdutosController::class, 'crop'])->name(
     'produtos.recortar'

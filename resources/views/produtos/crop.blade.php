@@ -1,3 +1,5 @@
+@stack('scripts')
+@stack('styles')
 @extends('templates.base')
 @section('title', 'Edição de Imagem')
 @section('h1', 'Edição de Imagem')
