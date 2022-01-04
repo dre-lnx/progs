@@ -8,11 +8,12 @@
 <div class="row">
     <div class="col-4">
 
-        <form method="post" action="{{ route('produtos.recortar') }}" enctype="multipart/form-data">
+        <form method="post" action="{{ route('produtos.recortar') }}" id="cortar">
             @csrf
-            <div>
-            <img id="img-crop" src="{{}}"
-            </div>
+            <input type="hidden" name="img" id="img">
+            <p>
+                <input type="submit" value="cortar" class="btn-primary btn"/>
+            <p>
         </form>
 
     </div>

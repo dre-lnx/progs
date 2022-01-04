@@ -25,7 +25,7 @@
 
             <div class="mb-3">
                 <label for="descricao" class="form-label">Foto: </label>
-                <input type="file" class="form-control" name="imagem">
+                <input type="file" class="form-control" name="imagem" />
             </div>
 
             <div class="mb-3">
