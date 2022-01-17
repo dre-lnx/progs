@@ -124,17 +124,19 @@ Route::post('profile/password/edit', [
     ->name('profile.passwordUpdate');
 
 //Rota para enviar o usuário à home dos posts
-
 Route::get('posts', [PostsController::class, 'index'])->name('posts');
 
 //Rota para o formulário de criação do post
-
 Route::get('/posts/inserir', [PostsController::class, 'create'])->name(
     'posts.inserir'
 );
 
 //Rota para salvar dados no banco
-
 Route::post('/posts/inserir', [PostsController::class, 'insert'])->name(
     'posts.gravar'
+);
+
+//Rota para mostrar o post ionterio para o suuario
+Route::get('/posts/{prod}', [PostsController::class, 'show'])->name(
+    'posts.show'
 );
