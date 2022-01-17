@@ -11,10 +11,12 @@
     </div>
 
     <div class="row posts">
-    <div class="row post">
-        @foreach($posts as $post)
-            <p>{{$post->titulo}}</p>
-        @endforeach
-    </div>
+    @foreach($posts as $post)
+        <a href="{{ route('posts.show', $post)}}">
+            <div class="row post">
+                    <p>{{$post->titulo}}</p>
+            </div>
+        </a>
+    @endforeach
     </div>
 @endsection
