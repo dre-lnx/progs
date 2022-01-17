@@ -10,7 +10,8 @@ class PostsController extends Controller
     //Função para chamar posts e devolve-los para o usuário
     public function index()
     {
-        return view('posts.index', ['pagina' => 'posts']);
+        $posts = Post::orderBy('id', 'desc')->get();
+        return view('posts.index', ['posts' => $posts, 'pagina' => 'posts']);
     }
 
     //Função para devolver ao usuário o formulário de criação de post
