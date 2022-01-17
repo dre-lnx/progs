@@ -131,12 +131,12 @@ Route::get('/posts/inserir', [PostsController::class, 'create'])->name(
     'posts.inserir'
 );
 
-//Rota para salvar dados no banco
+//Rota para salvar dados do post no banco
 Route::post('/posts/inserir', [PostsController::class, 'insert'])->name(
     'posts.gravar'
 );
 
-//Rota para mostrar o post ionterio para o suuario
+//Rota para mostrar o post interio para o suuario
 Route::get('/posts/{post}', [PostsController::class, 'show'])->name(
     'posts.show'
 );
