@@ -10,8 +10,8 @@
         </div>
     </div>
 
-    <div class="row">
-    <div class="row">
+    <div class="row posts">
+    <div class="row post">
         @foreach($posts as $post)
             <p>{{$post->titulo}}</p>
         @endforeach
