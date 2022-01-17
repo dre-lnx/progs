@@ -8,9 +8,23 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js" integrity="sha512-ooSWpxJsiXe6t4+PPjCgYmVfr1NS5QXJACcR/FPpsdm6kqG1FmQ2SVyg2RXeVuCRBLr0lWHnWJP6Zs1Efvxzww==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     @endpush
     <title>@yield('title')</title>
+    <style>
+      .posts {
+        padding-top: 20px;
+      }
+      .post {
+        padding: 1rem;
+        transition: .2s;
+        border-radius:8px;
+      }
+      .post:hover {
+        cursor: pointer;
+        background-color: #d6d6d6;
+      }
+    </style>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
-</head>
+  </head>
 <body>
 
     <header class="p-3 bg-dark text-white mb-3">
