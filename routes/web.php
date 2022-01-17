@@ -133,6 +133,8 @@ Route::get('/posts/inserir', [PostsController::class, 'create'])->name(
     'posts.inserir'
 );
 
-Route::get('/posts/inserir', [PostsController::class, 'insert'])->name(
+//Rota para salvar dados no banco
+
+Route::post('/posts/inserir', [PostsController::class, 'insert'])->name(
     'posts.gravar'
 );
