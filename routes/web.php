@@ -137,6 +137,6 @@ Route::post('/posts/inserir', [PostsController::class, 'insert'])->name(
 );
 
 //Rota para mostrar o post ionterio para o suuario
-Route::get('/posts/{prod}', [PostsController::class, 'show'])->name(
+Route::get('/posts/{post}', [PostsController::class, 'show'])->name(
     'posts.show'
 );

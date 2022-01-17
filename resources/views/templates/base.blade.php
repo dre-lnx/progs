@@ -9,13 +9,20 @@
     @endpush
     <title>@yield('title')</title>
     <style>
+      .row *{
+        text-decoration: none;
+      }
       .posts {
         padding-top: 20px;
+      }
+      .post-title{
+        color: black;
       }
       .post {
         padding: 1rem;
         transition: .2s;
         border-radius:8px;
+        border-top: 1px solid #d6d6d6;
       }
       .post:hover {
         cursor: pointer;
