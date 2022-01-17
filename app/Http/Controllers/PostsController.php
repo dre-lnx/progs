@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Post;
 
 class PostsController extends Controller
 {
@@ -18,8 +19,16 @@ class PostsController extends Controller
         return view('posts.create', ['pagina' => 'posts']);
     }
 
-    public function insert()
+    //Função para Salvar dados no banco
+    public function insert(Request $form)
     {
-        dd('asdsad');
+        $post = new Post();
+
+        $post->titulo = $form->titulo;
+        $post->descricao = $form->descricao;
+
+        $post->save();
+
+        return redirect()->route('posts');
     }
 }
