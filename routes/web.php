@@ -126,3 +126,9 @@ Route::post('profile/password/edit', [
 //Rota para enviar o usuário à home dos posts
 
 Route::get('posts', [PostsController::class, 'index'])->name('posts');
+
+//Rota para o formulário de criação do post
+
+Route::get('/posts/inserir', [PostsController::class, 'create'])->name(
+    'posts.inserir'
+);
