@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PostsController;
 use App\Http\Controllers\ProdutosController;
 use App\Http\Controllers\UsuariosController;
 use Illuminate\Support\Facades\Route;
@@ -121,3 +122,7 @@ Route::post('profile/password/edit', [
 ])
     ->middleware('auth')
     ->name('profile.passwordUpdate');
+
+//Rota para enviar o usuário à home dos posts
+
+Route::get('posts', [PostsController::class, 'index'])->name('posts');
