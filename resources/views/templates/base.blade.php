@@ -25,9 +25,10 @@
         border-top: 1px solid #d6d6d6;
       }
       .post p {
-        max-width: 40%;
-        overflow: hidden; 
+        max-width: 30ch;
+        overflow: hidden;
         text-overflow: ellipsis;
+        white-space: nowrap;
       }
       .post:hover {
         cursor: pointer;
