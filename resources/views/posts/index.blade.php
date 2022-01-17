@@ -14,6 +14,7 @@
     @foreach($posts as $post)
         <a href="{{ route('posts.show', $post)}}">
             <div class="row post">
+                    <h4>{{$post->titulo}}</h4>
                     <p class="post-title">{{$post->descricao}}</p>
             </div>
         </a>

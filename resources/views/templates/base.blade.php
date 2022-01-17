@@ -24,6 +24,11 @@
         border-radius:8px;
         border-top: 1px solid #d6d6d6;
       }
+      .post p {
+        max-width: 40%;
+        overflow: hidden; 
+        text-overflow: ellipsis;
+      }
       .post:hover {
         cursor: pointer;
         background-color: #d6d6d6;
