@@ -132,3 +132,7 @@ Route::get('posts', [PostsController::class, 'index'])->name('posts');
 Route::get('/posts/inserir', [PostsController::class, 'create'])->name(
     'posts.inserir'
 );
+
+Route::get('/posts/inserir', [PostsController::class, 'insert'])->name(
+    'posts.gravar'
+);

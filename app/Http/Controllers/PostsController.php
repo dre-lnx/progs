@@ -11,4 +11,15 @@ class PostsController extends Controller
     {
         return view('posts.index', ['pagina' => 'posts']);
     }
+
+    //Função para devolver ao usuário o formulário de criação de post
+    public function create()
+    {
+        return view('posts.create', ['pagina' => 'posts']);
+    }
+
+    public function insert()
+    {
+        dd('asdsad');
+    }
 }
