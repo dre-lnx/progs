@@ -22,10 +22,13 @@ class PostsController extends Controller
     //Função para Salvar dados no banco
     public function insert(Request $form)
     {
+        $caminho_imagem = $form->file('imagem')->store('', 'imagens');
+
         $post = new Post();
 
         $post->titulo = $form->titulo;
         $post->descricao = $form->descricao;
+        $post->imagem = $caminho_imagem;
 
         $post->save();
 
